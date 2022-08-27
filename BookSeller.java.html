@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>BookSeller.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6a8759;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+BookSeller.java</font>
+</center></td></tr></table>
+<pre><span class="s0">public class </span><span class="s1">BookSeller {</span>
+
+    <span class="s0">public static class </span><span class="s1">Book {</span>
+        <span class="s0">public </span><span class="s1">String id</span><span class="s0">;</span>
+        <span class="s0">public </span><span class="s1">String isbn</span><span class="s0">;</span>
+        <span class="s0">public </span><span class="s1">String name</span><span class="s0">;</span>
+        <span class="s0">public </span><span class="s1">String author</span><span class="s0">;</span>
+        <span class="s0">public </span><span class="s1">String public_date</span><span class="s0">;</span>
+
+        <span class="s0">public </span><span class="s1">Book(String id</span><span class="s0">, </span><span class="s1">String isbn</span><span class="s0">, </span><span class="s1">String name</span><span class="s0">, </span><span class="s1">String author</span><span class="s0">, </span><span class="s1">String public_date) {</span>
+            <span class="s0">this</span><span class="s1">.id = id</span><span class="s0">;</span>
+            <span class="s0">this</span><span class="s1">.isbn = isbn</span><span class="s0">;</span>
+            <span class="s0">this</span><span class="s1">.name = name</span><span class="s0">;</span>
+            <span class="s0">this</span><span class="s1">.author = author</span><span class="s0">;</span>
+            <span class="s0">this</span><span class="s1">.public_date = public_date</span><span class="s0">;</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public static void </span><span class="s1">sellBooks(String id</span><span class="s0">, </span><span class="s1">String isbn</span><span class="s0">, </span><span class="s1">String name</span><span class="s0">, </span><span class="s1">String author</span><span class="s0">, </span><span class="s1">String public_date) {</span>
+        <span class="s1">BookSeller.Book b1 = </span><span class="s0">new </span><span class="s1">BookSeller.Book(id</span><span class="s0">,</span><span class="s1">isbn</span><span class="s0">,</span><span class="s1">name</span><span class="s0">,</span><span class="s1">author</span><span class="s0">,</span><span class="s1">public_date)</span><span class="s0">;</span>
+        <span class="s1">System.out.println(b1.name+</span><span class="s2">&quot; &quot;</span><span class="s1">+b1.author+ </span><span class="s2">&quot; &quot;</span><span class="s1">+b1.public_date)</span><span class="s0">;</span>
+
+    <span class="s1">}</span>
+
+    <span class="s0">public static void </span><span class="s1">main(String[] args) {</span>
+        <span class="s1">BookSeller.sellBooks(</span><span class="s2">&quot;001&quot;</span><span class="s0">,</span><span class="s2">&quot;100100&quot;</span><span class="s0">,</span><span class="s2">&quot;DUDUDU&quot;</span><span class="s0">,</span><span class="s2">&quot;SpongeBob&quot;</span><span class="s0">,</span><span class="s2">&quot;1988/1/2&quot;</span><span class="s1">)</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+<span class="s1">}</span>
+
+
+</pre>
+</body>
+</html>
