@@ -1,0 +1,64 @@
+<html>
+<head>
+<title>executer.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6a8759;}
+.s3 { color: #6897bb;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+executer.java</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">javafx.application.Application</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">javafx.stage.Stage</span><span class="s0">;</span>
+
+<span class="s0">public class </span><span class="s1">executer {</span>
+    <span class="s0">static class </span><span class="s1">classA {</span>
+        <span class="s0">public </span><span class="s1">String getMethod(){</span>
+            <span class="s0">return </span><span class="s2">&quot;A.getMethod&quot;</span><span class="s0">;</span>
+        <span class="s1">}</span>
+
+    <span class="s1">}</span>
+
+    <span class="s0">static class </span><span class="s1">classB {</span>
+        <span class="s0">public </span><span class="s1">String getMethod(){</span>
+            <span class="s0">return </span><span class="s2">&quot;B.getMethod&quot;</span><span class="s0">;</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public static void </span><span class="s1">runSameTime(){</span>
+        <span class="s1">ExecutorService es = Executors.newFixedThreadPool(</span><span class="s3">2</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s0">try </span><span class="s1">{</span>
+            <span class="s1">Future&lt;String&gt; aFuture = es.submit(()-&gt; </span><span class="s0">new </span><span class="s1">classA().getMethod())</span><span class="s0">;</span>
+            <span class="s1">Future&lt;String&gt; bFuture = es.submit(()-&gt; </span><span class="s0">new </span><span class="s1">classB().getMethod())</span><span class="s0">;</span>
+            <span class="s0">boolean </span><span class="s1">done = </span><span class="s0">false;</span>
+            <span class="s0">while</span><span class="s1">(!done) {</span>
+                <span class="s0">if</span><span class="s1">(aFuture.isDone() &amp;&amp; bFuture.isDone()) {</span>
+                    <span class="s1">System.out.println(bFuture.get() + </span><span class="s2">&quot; &quot; </span><span class="s1">+ aFuture.get())</span><span class="s0">;</span>
+                    <span class="s1">done = </span><span class="s0">true;</span>
+                <span class="s1">}</span>
+            <span class="s1">}</span>
+        <span class="s1">}</span>
+        <span class="s0">catch </span><span class="s1">(InterruptedException e){</span>
+            <span class="s1">e.printStackTrace()</span><span class="s0">;</span>
+        <span class="s1">}</span>
+        <span class="s0">catch </span><span class="s1">(Exception e) {</span>
+            <span class="s1">e.printStackTrace()</span><span class="s0">;</span>
+        <span class="s1">}</span>
+        <span class="s0">finally </span><span class="s1">{</span>
+            <span class="s1">es.shutdown()</span><span class="s0">;</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+    <span class="s0">public static void </span><span class="s1">main(String[] args) {</span>
+        <span class="s1">runSameTime()</span><span class="s0">;</span>
+    <span class="s1">}</span>
+<span class="s1">}</span></pre>
+</body>
+</html>
