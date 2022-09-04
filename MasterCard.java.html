@@ -6,6 +6,7 @@
 .s0 { color: #cc7832;}
 .s1 { color: #a9b7c6;}
 .s2 { color: #6a8759;}
+.s3 { color: #6897bb;}
 </style>
 </head>
 <body bgcolor="#2b2b2b">
@@ -14,7 +15,10 @@
 <font face="Arial, Helvetica" color="#000000">
 MasterCard.java</font>
 </center></td></tr></table>
-<pre><span class="s0">public class </span><span class="s1">MasterCard </span><span class="s0">extends </span><span class="s1">CreditCard{</span>
+<pre><span class="s0">import </span><span class="s1">javafx.application.Application</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">javafx.stage.Stage</span><span class="s0">;</span>
+
+<span class="s0">public class </span><span class="s1">MasterCard </span><span class="s0">extends </span><span class="s1">CreditCard{</span>
 
     <span class="s0">public </span><span class="s1">MasterCard(String name</span><span class="s0">, </span><span class="s1">String num</span><span class="s0">, double </span><span class="s1">balance) {</span>
         <span class="s0">super</span><span class="s1">()</span><span class="s0">;</span>
@@ -30,6 +34,13 @@ MasterCard.java</font>
             <span class="s0">return true;</span>
         <span class="s1">}</span>
         <span class="s0">return false;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public static void </span><span class="s1">main(String[] args) {</span>
+        <span class="s1">CreditCard boa = </span><span class="s0">new </span><span class="s1">MasterCard(</span><span class="s2">&quot;Sana&quot;</span><span class="s0">,</span><span class="s2">&quot;10020004&quot;</span><span class="s0">,</span><span class="s3">200.0</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">boa.payBills(</span><span class="s3">30.0</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">refund(</span><span class="s3">20</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">System.out.println(boa.accountBalance)</span><span class="s0">;</span>
     <span class="s1">}</span>
 <span class="s1">}</span></pre>
 </body>

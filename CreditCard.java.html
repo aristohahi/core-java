@@ -3,8 +3,8 @@
 <title>CreditCard.java</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <style type="text/css">
-.s0 { color: #a9b7c6;}
-.s1 { color: #cc7832;}
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
 .s2 { color: #808080;}
 </style>
 </head>
@@ -14,28 +14,33 @@
 <font face="Arial, Helvetica" color="#000000">
 CreditCard.java</font>
 </center></td></tr></table>
-<pre>
-<span class="s1">public abstract class </span><span class="s0">CreditCard {</span>
-    <span class="s1">public </span><span class="s0">String holdername</span><span class="s1">;</span>
-    <span class="s1">public </span><span class="s0">String cardnumber</span><span class="s1">;</span>
-    <span class="s1">public double </span><span class="s0">accountBalance</span><span class="s1">;</span>
-    <span class="s1">public </span><span class="s0">String cardType</span><span class="s1">;</span>
+<pre><span class="s0">import </span><span class="s1">javafx.application.Application</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">javafx.stage.Stage</span><span class="s0">;</span>
 
-    <span class="s1">public </span><span class="s0">CreditCard() {</span>
-    <span class="s0">}</span>
-    <span class="s1">abstract boolean </span><span class="s0">isCardAccepted(String cardType)</span><span class="s1">;</span>
+<span class="s0">public abstract class </span><span class="s1">CreditCard {</span>
+    <span class="s1">String holdername</span><span class="s0">;</span>
+    <span class="s1">String cardnumber</span><span class="s0">;</span>
+    <span class="s0">static double </span><span class="s1">accountBalance</span><span class="s0">;</span>
+    <span class="s1">String cardType</span><span class="s0">;</span>
 
-    <span class="s1">public void </span><span class="s0">payBills(</span><span class="s1">double </span><span class="s0">bill) {</span>
-        <span class="s0">accountBalance =- bill</span><span class="s1">;</span>
-    <span class="s0">}</span>
+    <span class="s0">public </span><span class="s1">CreditCard() {</span>
+    <span class="s1">}</span>
+    <span class="s0">abstract boolean </span><span class="s1">isCardAccepted(String cardType)</span><span class="s0">;</span>
+
+    <span class="s0">public void </span><span class="s1">payBills(</span><span class="s0">double </span><span class="s1">bill) {</span>
+        <span class="s0">this</span><span class="s1">.accountBalance = </span><span class="s0">this</span><span class="s1">.accountBalance - bill</span><span class="s0">;</span>
+    <span class="s1">}</span>
 
 
     <span class="s2">//static polymorphism: method overload.</span>
-    <span class="s1">public void </span><span class="s0">payBills(</span><span class="s1">int </span><span class="s0">bill) {</span>
-        <span class="s0">accountBalance =- (</span><span class="s1">double</span><span class="s0">)bill</span><span class="s1">;</span>
-    <span class="s0">}</span>
-<span class="s0">}</span>
+    <span class="s0">public void </span><span class="s1">payBills(</span><span class="s0">int </span><span class="s1">bill) {</span>
+        <span class="s1">accountBalance =- (</span><span class="s0">double</span><span class="s1">)bill</span><span class="s0">;</span>
+    <span class="s1">}</span>
 
+    <span class="s0">public static void </span><span class="s1">refund(</span><span class="s0">double </span><span class="s1">bill) {</span>
+        <span class="s1">accountBalance = accountBalance+ bill</span><span class="s0">;</span>
+    <span class="s1">}</span>
+<span class="s1">}</span>
 
 </pre>
 </body>
